@@ -1,0 +1,29 @@
+<div class="col-md-8">
+    <h3 class="pb-4 mb-4 fst-italic border-bottom">
+        Django Blog - articles
+    </h3>
+
+    <!-- SINGLE POST VIEW - START -->
+    {% for post in posts %}
+    <article class="media content-section">
+        <div class="media-body">
+            <div class="article-metadata">
+                <a class="mr-2" href="{% url 'user:profile' user.id %}">{{ post.user }}</a>
+                <small class="text-muted">{{ post.datetime|date:"F d, Y" }}</small>
+                <h5><a class="article-title text-dark" href="{% url 'api:post-detail' post.id %}">{{ post.title }}</a></h5>
+                <p>{{ post.content|truncatewords_html:50 }} </p>
+            </div>
+        </div>
+    </article>
+    {% endfor %}
+    <!-- SINGLE POST VIEW - END -->
+
+
+    <nav class="blog-pagination" aria-label="Pagination">
+        <a class="btn btn-outline-primary" href="#">Older</a>
+        <a class="btn btn-outline-secondary disabled">Newer</a>
+    </nav>
+
+</div>
+
+

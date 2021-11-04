@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block blog_content %}
+
+    {% for user in user_posts %}
+
+        <h2>{{user.username}} </h2>
+        <p> Number of post published: {{ user.total_posts }}
+
+    {% endfor %}
+<a class="btn btn-sm btn-outline-secondary" href="{% url 'api:home' %}">Back Home</a>
+{% endblock blog_content %}

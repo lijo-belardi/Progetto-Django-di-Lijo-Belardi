@@ -1,0 +1,29 @@
+<div class="container">
+
+    <!-- _banner_big -->
+    {% block _banner_big %}
+    {% include "partials/_banner_big.html" %}
+    {% endblock _banner_big %}
+
+
+    <!-- _section_highlights -->
+    {% block _section_highlights %}
+    {% include "partials/_section_highlights.html" %}
+    {% endblock _section_highlights %}
+
+    <main role="main" class="container">
+        <div class="row g-5">
+
+            <!-- _section_articles -->
+            {% block _section_articles %}
+            {% include "partials/_section_articles.html" %}
+            {% endblock _section_articles %}
+
+            <!-- Sidebar -->
+            {% block _sidebar %}
+            {% include "partials/_sidebar.html" %}
+            {% endblock _sidebar %}
+
+        </div>
+    </main>
+</div>
