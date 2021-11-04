@@ -18,7 +18,7 @@ def posts(request):
             {
                 'datetime': post.datetime,
                 'content': post.content,
-                'author': f"{post.user.first_name} {post.user.last_name}",
+                'user': f"{post.user.first_name} {post.user.last_name}",
                 'hash': post.hash,
                 'txId': post.txId,
             }
@@ -42,7 +42,7 @@ def last_hour(request):
                 'title': post.title,
                 'datetime': post.datetime,
                 'content': post.content,
-                'author': f"{post.user.first_name} {post.user.last_name}",
+                'user': f"{post.user.first_name} {post.user.last_name}",
                 'hash': post.hash,
                 'txId': post.txId
             }
