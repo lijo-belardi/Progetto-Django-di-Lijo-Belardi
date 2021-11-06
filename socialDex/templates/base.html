@@ -1,32 +1,13 @@
 <!doctype html>
 <html lang="en">
-<head>
-    <!-- head meta informations -->
-    {% block _head_meta_informations %}
-    {% include "partials/_head_meta_informations.html" %}
-    {% endblock _head_meta_informations %}
+    <!-- head -->
+    {% block _head %}
+    {% include "partials/_head.html" %}
+    {% endblock _head %}
+    <!-- head -->
 
-    <!-- title base -->
-    {% block _title_base %}
-    {% include "partials/_title_base.html" %}
-    {% endblock _title_base %}
+    <body>
 
-    <!-- bootstrap example template -->
-    {% block _bootstrap_example %}
-    {% include "partials/_bootstrap_example.html" %}
-    {% endblock _bootstrap_example %}
-
-    <!-- Bootstrap core CSS and load static -->
-    {% block _bootstrap_core_CSS %}
-    {% include "partials/_bootstrap_core_CSS.html" %}
-    {% endblock _bootstrap_core_CSS %}
-
-    <!-- style -->
-    {% block _style %}
-    {% include "partials/_style.html" %}
-    {% endblock _style %}
-</head>
-<body>
     <!-- header -->
     {% block header %}
     {% include "partials/_header.html" %}
@@ -46,5 +27,6 @@
     {% block _base_script %}
     {% include "partials/_base_script.html" %}
     {% endblock _base_script %}
+
 </body>
 </html>
