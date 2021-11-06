@@ -32,8 +32,6 @@
         <a class="btn btn-outline-primary btn-sm" href="{% url 'api:post-create' %}">New post</a>
         <a class="btn btn-outline-primary btn-sm" href="{% url 'user:profile' user.id %}">Profile</a>
         <a class="btn btn-outline-primary btn-sm" href="{% url 'user:logout' %}">Logout</a>
-        {% else%}
-        <a class="btn btn-outline-primary btn-sm" href="{% url 'user:login' %}">Login</a>
         {% endif %}
     </div>
     <!-- HEADER TOP - RIGHT SECTION - END -->
