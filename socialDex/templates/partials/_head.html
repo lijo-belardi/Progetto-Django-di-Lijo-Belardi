@@ -1,26 +1,47 @@
+{% load static %}
 <head>
-    <!-- head meta informations -->
-    {% block _head_meta_informations %}
-    {% include "partials/_head_meta_informations.html" %}
-    {% endblock _head_meta_informations %}
+<!-- META INFORMATIONS -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+<meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+<meta name="generator" content="Hugo 0.88.1">
 
-    <!-- title base -->
-    {% block _title_base %}
-    {% include "partials/_title_base.html" %}
-    {% endblock _title_base %}
+{% if title %}
+    <title>Django Blog - {{ title }}</title>
+    {% else %}
+    <title>Django Blog</title>
+    {% endif %}
 
-    <!-- bootstrap example template -->
-    {% block _bootstrap_example %}
-    {% include "partials/_bootstrap_example.html" %}
-    {% endblock _bootstrap_example %}
+<link rel="canonical" href="https://getbootstrap.com/docs/5.1/examples/blog/">
 
-    <!-- Bootstrap core CSS and load static -->
-    {% block _bootstrap_core_CSS %}
-    {% include "partials/_bootstrap_core_CSS.html" %}
-    {% endblock _bootstrap_core_CSS %}
 
-    <!-- style -->
-    {% block _style %}
-    {% include "partials/_style.html" %}
-    {% endblock _style %}
+
+
+<link href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.0/lux/bootstrap.min.css" rel="stylesheet" integrity="sha384-smnSwzHqW1zKbeuSMsAM/fMQpkk7HY11LuHiwT8snL/W2QBoZtVCT4H5x1CEcJCs" crossorigin="anonymous">
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+<link rel="stylesheet" type="text/css" href="{% static '/css/main.css' %}">
+
+
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+    </style>
+
+<!-- Custom styles for this template -->
+<link href="https://fonts.googleapis.com/css?family=Playfair&#43;Display:700,900&amp;display=swap" rel="stylesheet">
+
 </head>
