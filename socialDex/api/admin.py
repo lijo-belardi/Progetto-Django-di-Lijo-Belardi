@@ -3,6 +3,9 @@ from .models import Post
 
 class PostAdmin(admin.ModelAdmin):
     list_display = ["title", "datetime", "user"]
+    list_filter = ["user", "datetime"]
+    search_fields = ["title", "content"]
+    ordering = ["datetime"]
 
     class Meta:
         model = Post
