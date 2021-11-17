@@ -1,11 +1,14 @@
 {% extends "base.html" %}
 {% block blog_content %}
-
+<div class="container">
     {% for user in user_posts %}
 
-        <h2>{{user.username}} </h2>
-        <p> Number of post published: {{ user.total_posts }}
+    <h2>{{user.username}} </h2>
+    <p> Number of post published: {{ user.total_posts }}
 
-    {% endfor %}
-<a class="btn btn-sm btn-outline-secondary" href="{% url 'api:home' %}">Back Home</a>
+        {% endfor %}
+        <br>
+        <br>
+        <a class="btn btn-sm btn-outline-secondary" href="{% url 'api:home' %}">Back Home</a>
+</div>
 {% endblock blog_content %}

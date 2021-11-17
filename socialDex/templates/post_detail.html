@@ -2,25 +2,27 @@
 
 
 {% block blog_content %}
+<div class="container">
     <article class="media content-section">
-      <div class="media-body">
-        <div class="article-metadata">
-          <a class="mr-2" href="{% url 'user:profile' user.id%}">{{ object.user }}</a>
-          <small class="text-muted">{{ object.datetime|date:"F d, Y" }}</small>
-        </div>
-        <h2 class="article-title">{{ object.title }}</h2>
-        <p class="article-content">{{ object.content }}</p>
+        <div class="media-body">
+            <div class="article-metadata">
+                <a class="mr-2" href="{% url 'user:profile' user.id%}">{{ object.user }}</a>
+                <small class="text-muted">{{ object.datetime|date:"F d, Y" }}</small>
+            </div>
+            <h2 class="article-title">{{ object.title }}</h2>
+            <p class="article-content">{{ object.content }}</p>
 
-        <a class="article-content" href="https://ropsten.etherscan.io/tx/{{ object.txId }}">Check on EtherScan</a>
+            <a class="article-content" href="https://ropsten.etherscan.io/tx/{{ object.txId }}">Check on EtherScan</a>
 
-          <!-- Bottoms: UPDATE, DELETE, BACK HOME. -->
-          <div class="mt-3 ">
+            <!-- Bottoms: UPDATE, DELETE, BACK HOME. -->
+            <div class="mt-3 ">
                 <a class="btn btn-outline-primary btn-sm" href="{% url 'api:post-update' object.id %}" >Update</a>
                 <a class="btn btn-outline-danger btn-sm" href="{% url 'api:post-delete' object.id %}" >Delete</a>
                 <a class="btn btn-sm btn-outline-secondary" href="{% url 'api:home' %}">Back Home</a>
-          </div>
-          <!-- Bottoms: UPDATE, DELETE, BACK HOME. -->
+            </div>
+            <!-- Bottoms: UPDATE, DELETE, BACK HOME. -->
 
-      </div>
+        </div>
     </article>
+</div>
 {% endblock blog_content %}

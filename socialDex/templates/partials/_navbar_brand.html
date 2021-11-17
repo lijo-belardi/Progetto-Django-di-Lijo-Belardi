@@ -1,0 +1,5 @@
+{% if user.is_authenticated %}
+<a class="navbar-brand mr-4" href="{% url 'api:home' %}">Start2Django</a>
+{% else %}
+<a class="navbar-brand mr-4 text-white">Start2Django</a>
+{% endif %}
