@@ -1,13 +1,28 @@
-<header class="blog-header py-3">
-    <div class="container">
+<header class="site-header">
 
-      {% block header_top %}
-            {% include "partials/_header_top.html" %}
-        {% endblock header_top %}
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-md navbar-dark bg-steel fixed-top">
+        <div class="container ">
+            <!-- Navbar Brand -->
+            {% block _navbar_brand %}
+            {% include "partials/_navbar_brand.html" %}
+            {% endblock _navbar_brand %}
 
-      {% block header_nav %}
-            {% include "partials/_header_nav.html" %}
-        {% endblock header_nav %}
-    </div>
-  </header>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarToggle">
 
+                <!-- Navbar Left Side -->
+                {% block _navbar_left_side %}
+                {% include "partials/_navbar_left_side.html" %}
+                {% endblock _navbar_left_side %}
+
+                <!-- Navbar Right Side -->
+                {% block _navbar_right_side %}
+                {% include "partials/_navbar_right_side.html" %}
+                {% endblock _navbar_right_side %}
+            </div>
+        </div>
+    </nav>
+</header>
