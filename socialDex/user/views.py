@@ -80,7 +80,7 @@ def profile(request, id):
 
 
 #ip_check_view
-@login_required()
+@login_required
 def ip_check_view(request):
     context = {}
     return render(request, 'user/ip_check.html', context)
