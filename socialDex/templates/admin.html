@@ -2,10 +2,8 @@
 {% block blog_content %}
 <div class="container">
     {% for user in user_posts %}
-
     <h2>{{user.username}} </h2>
     <p> Number of post published: {{ user.total_posts }}
-
         {% endfor %}
         <br>
         <br>
