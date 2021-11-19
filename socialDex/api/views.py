@@ -8,8 +8,7 @@ from datetime import datetime, timedelta
 import hashlib
 from .utils import sendTransaction
 
-
-
+#JSON for all posts
 def posts(request):
     response = []
     posts = Post.objects.filter().order_by('-datetime')
@@ -50,7 +49,7 @@ def last_hour(request):
     # return Json in the page
     return JsonResponse(response, safe=False)
 
-#for home
+#HOME View
 class PostListView(ListView):
     model = Post
     template_name = 'base.html'
@@ -60,7 +59,7 @@ class PostListView(ListView):
 
 
 
-#for Admin page
+#Admin page class
 class AdminPageView(ListView):
     model = Post
     template_name = "admin.html"
@@ -76,12 +75,13 @@ class AdminPageView(ListView):
     def test_func(self):
         return self.request.user.is_superuser
 
+#Post create class
 class PostCreateView(CreateView):
     model = Post
     fields = ['title', 'content']
     template_name = "post_create.html"
 
-
+    #function for word 'hack' (title and content)
     def form_valid(self, form):
         forbiddenword = "hack"
         if not forbiddenword in self.request.POST['content']:
@@ -95,7 +95,7 @@ class PostCreateView(CreateView):
         else:
             return render(self.request, 'post_form_forbidden.html', {})
 
-
+#Post detail class
 class PostDetailView(DetailView):
     model = Post
     template_name = 'post_detail.html'
@@ -107,6 +107,7 @@ class PostDetailView(DetailView):
             return super().form_valid(form)
         else:
             return render(self.request, 'post_form_forbidden.html', {})
+
     #only author can update the post
     def test_func(self):
         post = self.get_object()
@@ -114,10 +115,12 @@ class PostDetailView(DetailView):
             return True
         return False
 
+#Post update class
 class PostUpdateView(UpdateView):
     model = Post
     fields = ['title', 'content']
     template_name = 'post_form.html'
+
     def form_valid(self, form):
         forbiddenword = "hack"
         if not forbiddenword in self.request.POST['content']:
@@ -130,6 +133,7 @@ class PostUpdateView(UpdateView):
                 return render(self.request, 'post_form_forbidden.html', {})
         else:
             return render(self.request, 'post_form_forbidden.html', {})
+
     #only author can update the post
     def test_func(self):
         post = self.get_object()
@@ -137,11 +141,12 @@ class PostUpdateView(UpdateView):
             return True
         return False
 
-
+#Post delete class
 class PostDeleteView(DeleteView):
     model = Post
     template_name = 'post_confirm_delete.html'
     success_url = '/api'
+
     #only author can delete the post
     def test_func(self):
         post = self.get_object()
@@ -149,6 +154,7 @@ class PostDeleteView(DeleteView):
             return True
         return False
 
+#Statistics function
 def statistics(request):
     if request.GET:
         word = request.GET.get('word').capitalize()
