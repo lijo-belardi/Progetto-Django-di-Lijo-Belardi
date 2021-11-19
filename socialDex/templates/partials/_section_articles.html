@@ -9,7 +9,7 @@
                 <a class="mr-2" href="{% url 'user:profile' user.id %}">{{ post.user }}</a>
                 <small class="text-muted">{{ post.datetime|date:"F d, Y" }}</small>
                 <h5><a class="article-title text-dark">{{ post.title }}</a></h5>
-                <p>{{ post.content|truncatewords_html:30 }} </p>
+                <p>{{ post.content|truncatewords_html:40 }} </p>
                 <p class="article-footer"><a href="{{post.get_absolute_url}}">Read more...</a></p>
             </div>
         </div>
