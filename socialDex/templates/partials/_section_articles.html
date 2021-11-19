@@ -1,7 +1,5 @@
 <div class="col-md-8">
-    <h4 class="pb-4 mb-4 fst-italic border-bottom">
-        Django Blog - articles
-    </h4>
+    <h4 class="pb-4 mb-4 fst-italic border-bottom">Django Blog - articles</h4>
 
     <!-- SINGLE POST VIEW - START -->
     {% for post in posts %}
@@ -10,8 +8,9 @@
             <div class="article-metadata">
                 <a class="mr-2" href="{% url 'user:profile' user.id %}">{{ post.user }}</a>
                 <small class="text-muted">{{ post.datetime|date:"F d, Y" }}</small>
-                <h5><a class="article-title text-dark" href="{% url 'api:post-detail' post.id %}">{{ post.title }}</a></h5>
-                <p>{{ post.content|truncatewords_html:50 }} </p>
+                <h5><a class="article-title text-dark">{{ post.title }}</a></h5>
+                <p>{{ post.content|truncatewords_html:30 }} </p>
+                <p class="article-footer"><a href="{{post.get_absolute_url}}">Read more...</a></p>
             </div>
         </div>
     </article>
