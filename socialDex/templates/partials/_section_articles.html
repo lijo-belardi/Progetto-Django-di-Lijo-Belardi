@@ -17,7 +17,7 @@
     {% endfor %}
     <!-- SINGLE POST VIEW - END -->
 
-
+    <!-- PAGINATION - START -->
     <div class="container" aria-label="Pagination">
         {% if page_obj.has_previous %}
         <a href="?page=1">&laquo; first</a>
@@ -29,5 +29,7 @@
         <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
         {% endif %}
     </div>
+    <!-- PAGINATION - END -->
+
 </div>
 
