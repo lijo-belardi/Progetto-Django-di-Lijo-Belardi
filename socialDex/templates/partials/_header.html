@@ -8,21 +8,16 @@
             {% include "partials/_navbar_brand.html" %}
             {% endblock _navbar_brand %}
 
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarToggle">
+            <!-- Navbar Left Side -->
+            {% block _navbar_left_side %}
+            {% include "partials/_navbar_left_side.html" %}
+            {% endblock _navbar_left_side %}
 
-                <!-- Navbar Left Side -->
-                {% block _navbar_left_side %}
-                {% include "partials/_navbar_left_side.html" %}
-                {% endblock _navbar_left_side %}
+            <!-- Navbar Right Side -->
+            {% block _navbar_right_side %}
+            {% include "partials/_navbar_right_side.html" %}
+            {% endblock _navbar_right_side %}
 
-                <!-- Navbar Right Side -->
-                {% block _navbar_right_side %}
-                {% include "partials/_navbar_right_side.html" %}
-                {% endblock _navbar_right_side %}
-            </div>
         </div>
     </nav>
 </header>
