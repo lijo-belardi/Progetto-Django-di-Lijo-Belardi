@@ -24,7 +24,7 @@ def posts(request):
         )
     return JsonResponse(response, safe=False)
 
-# posts of last hour page
+# JSON for posts of the last hour
 def last_hour(request):
     response = []
     # get time now
@@ -34,7 +34,7 @@ def last_hour(request):
     # filter posts
     posts = Post.objects.filter(datetime__range=(one_hour_before, this_hour))
 
-    # building Json response
+    # Building JSON response
     for post in posts:
         response.append(
             {
@@ -46,10 +46,10 @@ def last_hour(request):
                 'txId': post.txId
             }
         )
-    # return Json in the page
+    # return JSON in the page
     return JsonResponse(response, safe=False)
 
-#HOME View
+# HOME View
 class PostListView(ListView):
     model = Post
     template_name = 'base.html'
@@ -81,7 +81,7 @@ class PostCreateView(CreateView):
     fields = ['title', 'content']
     template_name = "post_create.html"
 
-    #function for word 'hack' (title and content)
+    # Function for word 'hack' (title and content)
     def form_valid(self, form):
         forbiddenword = "hack"
         if not forbiddenword in self.request.POST['content']:
@@ -108,14 +108,14 @@ class PostDetailView(DetailView):
         else:
             return render(self.request, 'post_form_forbidden.html', {})
 
-    #only author can update the post
+    # Only author can update the post
     def test_func(self):
         post = self.get_object()
         if self.request.user == post.user:
             return True
         return False
 
-#Post update class
+# Post update class
 class PostUpdateView(UpdateView):
     model = Post
     fields = ['title', 'content']
@@ -134,27 +134,27 @@ class PostUpdateView(UpdateView):
         else:
             return render(self.request, 'post_form_forbidden.html', {})
 
-    #only author can update the post
+    # Only author can update the post
     def test_func(self):
         post = self.get_object()
         if self.request.user == post.user:
             return True
         return False
 
-#Post delete class
+# Post delete class
 class PostDeleteView(DeleteView):
     model = Post
     template_name = 'post_confirm_delete.html'
     success_url = '/api'
 
-    #only author can delete the post
+    # Only author can delete the post
     def test_func(self):
         post = self.get_object()
         if self.request.user == post.user:
             return True
         return False
 
-#Statistics function
+# Statistics function
 def statistics(request):
     if request.GET:
         word = request.GET.get('word').capitalize()
