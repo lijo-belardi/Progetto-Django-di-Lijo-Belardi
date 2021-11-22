@@ -2,32 +2,17 @@
 
 {% block blog_content %}
 
-<header>
-
-  <!-- Card IP Check -->
-  <div class="container">
-      <div class="col s12 m7">
-        <h3 class="white-text">Warning!</h3>
-        <div class="card horizontal">
-          <div class="card-stacked">
-            <div class="card-content">
-              <p class="flow-text">Your actual ip address is different from the last login. We suggest you to change
-              password.</p>
-              <div class="card-action">
-                {% if not request.GET.next %}
-                  <a class="btn indigo"  name="next" style="margin: 10px;">Proceed</a>
-                {% elif request.GET.next == '' %}
-                  <a class="btn indigo"  name="next" style="margin: 10px;">Proceed</a>
-                {% else %}
-                  <a class="btn indigo"  name="next" style="margin: 10px;">Proceed</a>
-                {% endif %}
-                  <a class="btn indigo"  style="margin: 10px;">Change password</a>
-              </div>
-            </div>
-          </div>
+<!-- Card IP Check -->
+<div class="container">
+  <div class="col s12 m7">
+    <h3 class="white-text">Warning!</h3>
+    <div class="card horizontal">
+      <div class="card-stacked">
+        <div class="card-content">
+          <p class="flow-text">Your actual ip address is different from the last login.</p>
         </div>
       </div>
+    </div>
   </div>
-
-</header>
+</div>
 {% endblock blog_content %}
