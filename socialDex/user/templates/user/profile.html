@@ -5,8 +5,8 @@
     <h2>{{ user.username }}</h2>
     <div class="card-stacked">
         <div class="card-content">
-            <p> Email: {{ user.email }} </p>
-            <p> Number of post published: {{ number_of_posts }} </p>
+            <p>Email: <strong>{{ user.email }}</strong></p>
+            <p>Number of post published: <strong>{{ number_of_posts }}</strong></p>
             <a class="btn btn-sm btn-outline-secondary" href="{% url 'api:home' %}">Back Home</a>
         </div>
     </div>
