@@ -7,6 +7,7 @@
         <div class="card-content">
             <p>Email: <strong>{{ user.email }}</strong></p>
             <p>Number of post published: <strong>{{ number_of_posts }}</strong></p>
+            <a class="btn btn-sm btn-outline-secondary" href="{% url 'user:password-change' %}">Change password?</a><br><br>
             <a class="btn btn-sm btn-outline-secondary" href="{% url 'api:home' %}">Back Home</a>
         </div>
     </div>

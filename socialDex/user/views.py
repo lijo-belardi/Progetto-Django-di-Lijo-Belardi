@@ -2,11 +2,13 @@ from django.shortcuts import render, redirect
 from .forms import NewUserForm
 from django.contrib.auth import login, authenticate, logout
 from django.contrib import messages
-from django.contrib.auth.forms import AuthenticationForm
+from django.contrib.auth.forms import AuthenticationForm, PasswordChangeForm
+from django.contrib.auth.views import PasswordChangeView
 from django.contrib.auth.decorators import login_required
 from .models import UserInfo
 from django.utils import timezone
 from api.models import Post
+from django.urls import reverse_lazy
 from django.db.models import Count
 
 
@@ -85,3 +87,10 @@ def ip_check_view(request):
     context = {}
     return render(request, 'user/ip_check.html', context)
 
+class PasswordsChangeView(PasswordChangeView):
+	form_class = PasswordChangeForm
+	template_name = "registration/password_change.html"
+	success_url = reverse_lazy("user:password-success")
+
+def password_success(request):
+	return render(request, "registration/password_success.html", {})
