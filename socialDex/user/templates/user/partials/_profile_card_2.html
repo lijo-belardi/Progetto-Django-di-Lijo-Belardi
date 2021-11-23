@@ -1,0 +1,23 @@
+<br><div class="card horizontal"><!-- Card 2 -->
+
+    <!-- Actions section -->
+    <div style="margin: 10px;">
+        <h5>Actions</h5>
+        <div class="card-stacked border-top">
+            <div class="card-content"><br>
+                <a class="btn btn-sm btn-outline-success" href="{% url 'api:post-create' %}">New post</a>
+                <a class="btn btn-sm btn-outline-secondary" href="{% url 'api:home' %}">Back Home</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Security settings -->
+    <div style="margin: 10px;">
+        <h5>Security settings</h5>
+        <div class="card-stacked border-top">
+            <div class="card-content"><br>
+                <a class="btn btn-outline-danger btn-sm" href="{% url 'user:password-change' %}">Change password</a>
+            </div>
+        </div>
+    </div>
+</div><!-- Card 2 -->
