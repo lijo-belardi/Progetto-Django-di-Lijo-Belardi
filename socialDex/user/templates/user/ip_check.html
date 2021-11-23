@@ -5,11 +5,21 @@
 <!-- Card IP Check -->
 <div class="container">
   <div class="col s12 m7">
-    <h3 class="white-text">Warning!</h3>
+    <h3 class="white-text" style="margin: 5px;">Warning!</h3>
     <div class="card horizontal">
       <div class="card-stacked">
         <div class="card-content">
-          <p class="flow-text">Your actual ip address is different from the last login.</p>
+          <p class="flow-text" style="margin: 10px;"> Your actual ip address is different from the last login.</p>
+          <div class="card-action">
+            {% if not request.GET.next %}
+            <a class="btn btn-outline-primary btn-sm" href="{% url 'api:home' %}" name="next" style="margin: 10px;">Proceed</a>
+            {% elif request.GET.next == '' %}
+            <a class="btn btn-outline-primary btn-sm" href="{% url 'api:home' %}" name="next" style="margin: 10px;">Proceed</a>
+            {% else %}
+            <a class="btn btn-outline-primary btn-sm" href="{% url 'api:home' %}" name="next" style="margin: 10px;">Proceed</a>
+            {% endif %}
+            <a class="btn btn-outline-danger btn-sm" href="{% url 'user:password-change' %}" style="margin: 10px;">Change password</a>
+          </div>
         </div>
       </div>
     </div>
