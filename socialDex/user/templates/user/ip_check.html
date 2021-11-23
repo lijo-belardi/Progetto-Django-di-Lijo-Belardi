@@ -12,11 +12,11 @@
           <p class="flow-text" style="margin: 10px;"> Your actual ip address is different from the last login.</p>
           <div class="card-action">
             {% if not request.GET.next %}
-            <a class="btn btn-outline-primary btn-sm" href="{% url 'api:home' %}" name="next" style="margin: 10px;">Proceed</a>
+            <a class="btn btn-outline-success btn-sm" href="{% url 'api:home' %}" name="next" style="margin: 10px;">Go to home</a>
             {% elif request.GET.next == '' %}
-            <a class="btn btn-outline-primary btn-sm" href="{% url 'api:home' %}" name="next" style="margin: 10px;">Proceed</a>
+            <a class="btn btn-outline-success btn-sm" href="{% url 'api:home' %}" name="next" style="margin: 10px;">Go to home</a>
             {% else %}
-            <a class="btn btn-outline-primary btn-sm" href="{% url 'api:home' %}" name="next" style="margin: 10px;">Proceed</a>
+            <a class="btn btn-outline-success btn-sm" href="{% url 'api:home' %}" name="next" style="margin: 10px;">Go to home</a>
             {% endif %}
             <a class="btn btn-outline-danger btn-sm" href="{% url 'user:password-change' %}" style="margin: 10px;">Change password</a>
           </div>
