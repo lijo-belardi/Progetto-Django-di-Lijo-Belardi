@@ -1,9 +1,9 @@
 {% extends "base.html" %}
 {% load crispy_forms_tags %}
 {% block blog_content %}
-<div class="container">
+<div class="container"><!-- main container -->
     <h3 style="margin: 1px;">Profile - Private Area</h3>
-    <div class="card horizontal">
+    <div class="card horizontal"><!-- card 1: information -->
         <div style="margin: 10px;">
             <h5>{{ user.username }}</h5>
             <div class="card-stacked">
@@ -15,6 +15,6 @@
                 </div>
             </div>
         </div>
-    </div>
-</div>
+    </div><!-- card 1: information -->
+</div><!-- main container -->
 {% endblock blog_content %}
