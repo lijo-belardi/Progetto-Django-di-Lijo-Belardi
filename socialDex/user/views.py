@@ -35,7 +35,7 @@ def register_request(request):
 			return redirect("api:home")
 		messages.error(request, "Unsuccessful registration. Invalid information.")
 	form = NewUserForm()
-	return render (request=request, template_name="user/register.html", context={"register_form":form})
+	return render(request=request, template_name="user/register.html", context={"register_form": form})
 
 def login_request(request):
 	ip_address = getIpAdd(request)
@@ -63,34 +63,37 @@ def login_request(request):
 
 				return redirect("api:home")
 			else:
-				messages.error(request,"Invalid username or password.")
+				messages.error(request, "Invalid username or password.")
 
 		else:
-			messages.error(request,"Invalid username or password.")
+			messages.error(request, "Invalid username or password.")
 	form = AuthenticationForm()
-	return render(request=request, template_name="user/login.html", context={"login_form":form})
+	return render(request=request, template_name="user/login.html", context={"login_form": form})
 
 def logout_request(request):
 	logout(request)
 	messages.info(request, "You have successfully logged out.")
 	return redirect("user:login")
 
+# Profile's function
 @login_required
 def profile(request, id):
 	number_of_posts = Post.objects.filter(user=request.user).count()
-	return render(request, 'user/profile.html', {'id':id, 'number_of_posts': number_of_posts})
+	return render(request, 'user/profile.html', {'id': id, 'number_of_posts': number_of_posts})
 
 
-#ip_check_view
+# Ip_check_view
 @login_required
 def ip_check_view(request):
     context = {}
     return render(request, 'user/ip_check.html', context)
 
+# Password change
 class PasswordsChangeView(PasswordChangeView):
 	form_class = PasswordChangeForm
 	template_name = "registration/password_change.html"
 	success_url = reverse_lazy("user:password-success")
 
+# Password success function
 def password_success(request):
 	return render(request, "registration/password_success.html", {})
