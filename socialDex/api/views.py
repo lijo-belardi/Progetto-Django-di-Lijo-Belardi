@@ -58,8 +58,6 @@ class PostListView(ListView):
     ordering = ['-datetime']
     paginate_by = 5
 
-
-
 #Admin page class
 class AdminPageView(ListView):
     model = Post
@@ -161,11 +159,11 @@ def statistics(request):
         word = request.GET.get('word').capitalize()
         posts = Post.objects.filter(content__contains=word)
         times = len(posts)
-        context={
+        context = {
             'times': times,
             'word': word
         }
     else:
-        context={}
+        context = {}
     return render(request, 'statistics.html', context)
 
