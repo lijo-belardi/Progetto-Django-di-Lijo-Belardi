@@ -1,0 +1,35 @@
+<br><div class="card horizontal">
+    <!-- first section -->
+    <div class="row">
+        <div class="col">
+            <div style="margin: 10px;">
+                <h5>Actions</h5>
+                <div class="card-stacked border-top">
+                    <div class="card-content"><br>
+                        <a class="btn btn-sm btn-outline-primary" href="http://127.0.0.1:8000/posts/statistics/">Refresh</a>
+                        <a class="btn btn-sm btn-outline-success" href="{% url 'api:post-create' %}">New post</a>
+                        <br><br><a class="btn btn-sm btn-outline-secondary" href="{% url 'api:home' %}">Back Home</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- second section -->
+        <div class="col">
+            <div style="margin: 10px;">
+                <h5>Admin</h5>
+                <div class="card-stacked border-top">
+                    <div class="card-content">
+                        {% if user.is_superuser %}
+                        <br><a class="btn btn-sm btn-outline-primary" href="http://127.0.0.1:8000/admin/">Django admin's site</a><br>
+                        <br><a class="btn btn-sm btn-outline-secondary" href="{% url 'JSon' %}" target="_blank"> JSon</a>
+                        <a class="btn btn-sm btn-outline-secondary" href="{% url 'H1' %}" target="_blank">JSon Last Hour</a>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</div>

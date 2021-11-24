@@ -1,0 +1,18 @@
+<h3 style="margin: 5px;">Statistics</h3>
+<div class="card horizontal"><!-- card horizontal -->
+    <div style="margin: 10px;"><!-- div margin -->
+        <div class="card-stacked"><br><!-- Search card -->
+            <form action="counter"  method="GET" class="mb-5">
+                <input type="text" name = "word">
+                <input class="save btn btn-outline-success btn-sm" type="submit" value="Search"/>
+            </form>
+        </div><!-- Search card -->
+
+        <h5>Info</h5>
+        <div class="card-content"><!-- counter class -->
+            {% if word %}
+            <p>The word "<strong>{{ word }}</strong>" is used <strong>{{ times }}</strong> {% if times == 1 %} time. {% else %}times.{% endif %}</p>
+            {% endif %}
+        </div><!-- counter class -->
+    </div><!-- div margin -->
+</div><!-- card horizontal -->
