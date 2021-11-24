@@ -4,7 +4,7 @@
 
 <div class="container">
     <h3>New Post</h3>
-    <div class="form-group">
+    <div class="form-group"><!-- Post form -->
         <form method="POST" class="form-control" enctype="multipart/form-data">
             {% csrf_token %}
             {{ form.as_p }}
@@ -14,6 +14,6 @@
                 <a class="btn btn-sm btn-outline-secondary" href="{% url 'api:home' %}">Back Home</a>
             </div>
         </form>
-    </div>
+    </div><!-- Post form -->
 </div>
 {% endblock blog_content %}
