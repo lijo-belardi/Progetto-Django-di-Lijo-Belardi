@@ -6,10 +6,12 @@
         <div class="card-stacked border-top">
             <div class="card-content"><br>
                 <a class="btn btn-sm btn-outline-success" href="{% url 'api:post-create' %}">New post</a>
-                <a class="btn btn-sm btn-outline-secondary" href="{% url 'api:home' %}">Back Home</a>
                 {% if user.is_superuser %}
-                <a class="btn btn-sm btn-outline-secondary" href="http://127.0.0.1:8000/admin/">Django admin's site</a>
+                <a class="btn btn-sm btn-outline-primary" href="http://127.0.0.1:8000/admin/">Django admin's site</a>
+                <a class="btn btn-sm btn-outline-info" href="http://127.0.0.1:8000/posts/statistics/">Statistics</a>
                 {% endif %}
+                <br><br><a class="btn btn-sm btn-outline-secondary" href="{% url 'api:home' %}">Back Home</a>
+
             </div>
         </div>
     </div>
