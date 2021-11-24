@@ -15,11 +15,11 @@ def posts(request):
     for post in posts:
         response.append(
             {
-                'datetime': post.datetime,
-                'content': post.content,
+                'datetime': f"{post.datetime}",
+                'content': f"{post.content}",
                 'user': f"{post.user.first_name} {post.user.last_name}",
-                'hash': post.hash,
-                'txId': post.txId,
+                'hash': f"{post.hash}",
+                'txId': f"{post.txId}",
             }
         )
     return JsonResponse(response, safe=False)
