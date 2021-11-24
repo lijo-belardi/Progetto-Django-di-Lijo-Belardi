@@ -1,7 +1,7 @@
 <div class="col-md-8">
     <h4 class="pb-4 mb-4 fst-italic border-bottom">Django Blog - articles</h4>
 
-    <!-- SINGLE POST VIEW - START -->
+    <!-- POST LISTVIEW -->
     {% for post in posts %}
     <article class="media content-section">
         <div class="media-body">
@@ -15,21 +15,11 @@
         </div>
     </article>
     {% endfor %}
-    <!-- SINGLE POST VIEW - END -->
 
-    <!-- PAGINATION - START -->
-    <div class="blog-pagination" aria-label="Pagination">
-        {% if page_obj.has_previous %}
-        <a href="?page=1" style="margin: 5px;">&laquo; first</a>
-        <a href="?page={{ page_obj.previous_page_number }}" style="margin: 5px;">previous</a>
-        {% endif %}
-
-        {% if page_obj.has_next %}
-        <a href="?page={{ page_obj.next_page_number }}" style="margin: 5px;">next</a>
-        <a href="?page={{ page_obj.paginator.num_pages }}" style="margin: 5px;">last &raquo;</a>
-        {% endif %}
-    </div>
-    <!-- PAGINATION - END -->
+    <!-- PAGINATION -->
+    {% block _pagination %}
+    {% include "partials/_pagination.html" %}
+    {% endblock _pagination %}
 
 </div>
 
