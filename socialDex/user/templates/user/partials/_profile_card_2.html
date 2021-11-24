@@ -1,4 +1,4 @@
-<br><div class="card horizontal"><!-- Card 2 -->
+<br><div class="card horizontal">
 
     <!-- Actions section -->
     <div style="margin: 10px;">
@@ -7,6 +7,9 @@
             <div class="card-content"><br>
                 <a class="btn btn-sm btn-outline-success" href="{% url 'api:post-create' %}">New post</a>
                 <a class="btn btn-sm btn-outline-secondary" href="{% url 'api:home' %}">Back Home</a>
+                {% if user.is_superuser %}
+                <a class="btn btn-sm btn-outline-secondary" href="http://127.0.0.1:8000/admin/">Django admin's site</a>
+                {% endif %}
             </div>
         </div>
     </div>
@@ -20,4 +23,4 @@
             </div>
         </div>
     </div>
-</div><!-- Card 2 -->
+</div>
