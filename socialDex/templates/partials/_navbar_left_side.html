@@ -5,7 +5,7 @@
 
     {% if user.is_superuser %}
     <a class="nav-item nav-link" href="{% url 'api:admin' %}">Only Admin</a>
-    <a class="nav-item nav-link" href="{% url 'JSon' %}"> JSon</a>
-    <a class="nav-item nav-link" href="{% url 'H1' %}">JSon Last Hour</a>
+    <a class="nav-item nav-link" href="{% url 'JSon' %}" target="_blank"> JSon</a>
+    <a class="nav-item nav-link" href="{% url 'H1' %}" target="_blank">JSon Last Hour</a>
     {% endif %}
 </div>
