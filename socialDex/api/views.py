@@ -16,13 +16,14 @@ def posts(request):
         response.append(
             {
                 'datetime': f"{post.datetime}",
+                'user': f"{post.user}",
+                'title': f"{post.title}",
                 'content': f"{post.content}",
-                'user': f"{post.user.first_name} {post.user.last_name}",
                 'hash': f"{post.hash}",
                 'txId': f"{post.txId}",
             }
         )
-    return JsonResponse(response, safe=False)
+    return JsonResponse(response, safe=False, json_dumps_params={'indent': 3})
 
 # JSON for posts of the last hour
 def last_hour(request):
@@ -38,16 +39,16 @@ def last_hour(request):
     for post in posts:
         response.append(
             {
-                'title': post.title,
-                'datetime': post.datetime,
-                'content': post.content,
-                'user': f"{post.user.first_name} {post.user.last_name}",
-                'hash': post.hash,
-                'txId': post.txId
+                'datetime': f"{post.datetime}",
+                'user': f"{post.user}",
+                'title': f"{post.title}",
+                'content': f"{post.content}",
+                'hash': f"{post.hash}",
+                'txId': f"{post.txId}",
             }
         )
     # return JSON in the page
-    return JsonResponse(response, safe=False)
+    return JsonResponse(response, safe=False, json_dumps_params={'indent': 3})
 
 # HOME View
 class PostListView(ListView):
