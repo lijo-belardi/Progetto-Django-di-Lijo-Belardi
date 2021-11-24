@@ -2,31 +2,22 @@
 {% load crispy_forms_tags %}
 {% block blog_content %}
 
-{% if form.errors %}
-<p>Your username and password didn't match. Please try again.</p>
-{% endif %}
-
-{% if next %}
-{% if user.is_authenticated %}
-<p>Your account doesn't have access to this page. To proceed,
-  please login with an account that has access.</p>
-{% else %}
-<p>Please login to see this page.</p>
-{% endif %}
-{% endif %}
-
 
 <!--Login-->
 <div class="container py-5">
-  <h1>Login</h1>
-  <form method="POST">
-    {% csrf_token %}
-    {{ login_form|crispy }}
-    <br>
-    <button class="btn btn-primary" type="submit">Login</button>
-  </form>
-  <br>
-  <p>Don't have an account? <a href="{% url 'user:register' %}">Create an account</a>.</p>
+  <div class="card-stacked">
+    <div class="card-content">
+      <h1>Login</h1>
+      <form method="POST">
+        {% csrf_token %}
+        {{ login_form|crispy }}
+        <br>
+        <button class="btn btn-primary" type="submit">Login</button>
+      </form>
+      <br>
+      <p>Don't have an account? <a href="{% url 'user:register' %}">Create an account</a>.</p>
+    </div>
+  </div>
 </div>
 
 {% endblock blog_content %}
