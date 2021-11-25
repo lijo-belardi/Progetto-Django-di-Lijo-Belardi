@@ -1,22 +1,39 @@
 <br><div class="card horizontal">
-    <!-- first section -->
-    <div class="row">
-        <div class="col">
-            <div style="margin: 10px;">
+
+    <!-- section for normal users - START -->
+    <div style="margin: 10px;"><!-- style div -->
+        <h5>Actions</h5>
+        <div class="card-stacked border-top"><!-- card stacker -->
+            <div class="card-content"><br><!-- card content -->
+                <a class="btn btn-sm btn-outline-primary" href="http://127.0.0.1:8000/posts/statistics/">Refresh</a>
+                <a class="btn btn-sm btn-outline-success" href="{% url 'api:post-create' %}">New post</a>
+                <br><br><a class="btn btn-sm btn-outline-secondary" href="{% url 'api:home' %}">Back Home</a>
+            </div><!-- card content -->
+        </div><!-- card stacker -->
+    </div><!-- style div -->
+    <!-- section for normal users - END -->
+
+    <!-- section for superusers - START -->
+    {% if user.is_superuser %}
+    <div class="row"><!-- row -->
+
+        <!-- first section -->
+        <div class="col"><!-- first column -->
+            <div style="margin: 10px;"><!-- style div -->
                 <h5>Actions</h5>
-                <div class="card-stacked border-top">
-                    <div class="card-content"><br>
+                <div class="card-stacked border-top"><!-- card stacker -->
+                    <div class="card-content"><br><!-- card content -->
                         <a class="btn btn-sm btn-outline-primary" href="http://127.0.0.1:8000/posts/statistics/">Refresh</a>
                         <a class="btn btn-sm btn-outline-success" href="{% url 'api:post-create' %}">New post</a>
                         <br><br><a class="btn btn-sm btn-outline-secondary" href="{% url 'api:home' %}">Back Home</a>
-                    </div>
-                </div>
-            </div>
-        </div>
+                    </div><!-- card content -->
+                </div><!-- card stacker -->
+            </div><!-- style div -->
+        </div><!-- first column -->
 
         <!-- second section -->
-        <div class="col">
-            <div style="margin: 10px;">
+        <div class="col"><!-- second column -->
+            <div style="margin: 10px;"><!-- style div -->
                 <h5>Admin</h5>
                 <div class="card-stacked border-top">
                     <div class="card-content">
@@ -25,11 +42,12 @@
                         <br><a class="btn btn-sm btn-outline-secondary" href="{% url 'JSon' %}" target="_blank"> JSon</a>
                         <a class="btn btn-sm btn-outline-secondary" href="{% url 'H1' %}" target="_blank">JSon Last Hour</a>
                         {% endif %}
-                    </div>
-                </div>
-            </div>
+                    </div><!-- card content -->
+                </div><!-- card stacker -->
+            </div><!-- style div -->
+        </div><!-- second column -->
 
-        </div>
-    </div>
-
+    </div><!-- row -->
+    {% endif %}
+    <!-- section for superusers - END -->
 </div>
