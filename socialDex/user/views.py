@@ -48,7 +48,6 @@ def login_request(request):
 			user = authenticate(username=username, password=password)
 			if user is not None:
 				login(request, user)
-				messages.info(request, f"You are now logged in as {username}.")
 				try:
 					user_info = UserInfo.objects.get(user=user)
 				except:

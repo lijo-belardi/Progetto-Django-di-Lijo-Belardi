@@ -1,6 +1,17 @@
 {% extends "base.html" %}
 {% load crispy_forms_tags %}
 {% block blog_content %}
+
+<!-- message's section - START -->
+<div class="container">
+	{% if messages %}
+	{% for message in messages %}
+	<strong>{{ message }}</strong>
+	{% endfor %}
+	{% endif %}
+</div>
+<!-- message's section - END -->
+
 <!--Register-->
 <div class="container py-5">
 	<h1>Register</h1>
