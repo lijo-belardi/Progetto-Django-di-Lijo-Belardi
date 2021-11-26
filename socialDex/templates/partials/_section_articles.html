@@ -1,4 +1,13 @@
 <div class="col-md-8">
+    <!-- message's section - START -->
+    <div class="container">
+        {% if messages %}
+        {% for message in messages %}
+        <strong>{{ message }}</strong>
+        {% endfor %}
+        {% endif %}
+    </div><br>
+    <!-- message's section - END -->
     <h4 class="pb-4 mb-4 fst-italic border-bottom">Django Blog - articles</h4>
 
     <!-- POST LISTVIEW -->
