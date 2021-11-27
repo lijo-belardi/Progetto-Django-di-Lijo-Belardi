@@ -33,7 +33,7 @@ def last_hour(request):
     # -1 hour
     one_hour_before = this_hour - timedelta(hours=1)
     # filter posts
-    posts = Post.objects.filter(datetime__range=(one_hour_before, this_hour))
+    posts = Post.objects.filter(datetime__range=(one_hour_before, this_hour)).order_by('-datetime')
 
     # Building JSON response
     for post in posts:
