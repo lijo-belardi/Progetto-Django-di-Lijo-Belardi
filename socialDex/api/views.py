@@ -82,9 +82,9 @@ class PostCreateView(CreateView):
 
     # Function for word 'hack' (title and content)
     def form_valid(self, form):
-        forbiddenword = "hack"
-        if not forbiddenword in self.request.POST['content']:
-            if not forbiddenword in self.request.POST['title']:
+        forbidden_word = "hack"
+        if not forbidden_word in self.request.POST['content']:
+            if not forbidden_word in self.request.POST['title']:
                 form.instance.user = self.request.user
                 form.instance.hash = hashlib.sha256(((self.request.POST['content'])).encode('utf-8')).hexdigest()
                 form.instance.txId = sendTransaction(form.instance.hash)
